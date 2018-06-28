@@ -1,2 +1,1 @@
-# advanced-metadata
-Advanced Metadata
+# SOA Advanced Metadata
