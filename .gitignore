@@ -1,7 +1,3 @@
-*
-!exceptions/*
-!interfaces/*
-!traits/*
-!.gitignore
-!license.txt
-!readme.md
+composer.lock
+vendor/
+var/
