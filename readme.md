@@ -1,1 +1,1 @@
-# SOA Performance Metadata
+# SOA Metadata package
