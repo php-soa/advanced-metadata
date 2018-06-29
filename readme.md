@@ -1,1 +1,1 @@
-# SOA Advanced Metadata
+# SOA Performance Metadata
