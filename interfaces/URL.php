@@ -88,7 +88,7 @@ interface URL {
     // ########################################
 
     /**
-     * @return string
+     * @return string // default = &
      */
     public function getParameterDelimiter(): string;
 
@@ -101,9 +101,10 @@ interface URL {
 
     /**
      * @param string $key
+     * @param mixed|null $default
      * @return mixed
      */
-    public function getParameter(string $key): mixed;
+    public function getParameter(string $key, mixed $default = null): mixed;
 
     /**
      * @param string $key
