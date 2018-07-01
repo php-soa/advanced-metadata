@@ -9,7 +9,7 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\InvalidParameterException;
+use SOA\Exceptions\SOAInvalidParameterException;
 
 /**
  * Interface Request
@@ -32,7 +32,7 @@ interface Request {
     /**
      * @param string $method
      *
-     * @throws InvalidParameterException // if not support or invalid method
+     * @throws SOAInvalidParameterException // if not support or invalid method
      */
     public function setMethod(string $method): void;
 

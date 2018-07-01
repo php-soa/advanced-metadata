@@ -9,9 +9,9 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\InvalidParameterException;
-use SOA\Exceptions\ClassNotFoundException;
-use SOA\Exceptions\LogicException;
+use SOA\Exceptions\SOAInvalidParameterException;
+use SOA\Exceptions\SOAClassNotFoundException;
+use SOA\Exceptions\SOALogicException;
 
 /**
  * Interface RequestFactory
@@ -23,9 +23,9 @@ interface RequestFactory extends Factory {
      * @param array ...$params
      * @return Request
      *
-     * @throws InvalidParameterException
-     * @throws ClassNotFoundException
-     * @throws LogicException // if run CLI area
+     * @throws SOAInvalidParameterException
+     * @throws SOAClassNotFoundException
+     * @throws SOALogicException // if run CLI area
      */
     public function create(...$params): Request;
 }

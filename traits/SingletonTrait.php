@@ -9,8 +9,8 @@
 namespace SOA\Traits;
 
 
-use SOA\Exceptions\InvalidParameterException;
-use SOA\Exceptions\LogicException;
+use SOA\Exceptions\SOAInvalidParameterException;
+use SOA\Exceptions\SOALogicException;
 use SOA\Interfaces\Singleton;
 
 /**
@@ -38,8 +38,8 @@ trait SingletonTrait {
      * @param array ...$params
      * @return self
      *
-     * @throws InvalidParameterException
-     * @throws LogicException
+     * @throws SOAInvalidParameterException
+     * @throws SOALogicException
      */
     public static function getInstance(...$params): self {
 

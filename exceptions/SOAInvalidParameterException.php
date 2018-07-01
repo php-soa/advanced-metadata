@@ -2,19 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: roma_bb8
- * Date: 28.06.18
+ * Date: 27.06.18
  * Time: 23:29
  */
 
 namespace SOA\Exceptions;
 
 
-use OutOfBoundsException as BaseOutOfBoundsException;
+use InvalidArgumentException;
 
 /**
- * Class OutOfBoundsException
+ * Class SOAInvalidParameterException
  * @package SOA\Exceptions
  */
-class OutOfBoundsException extends BaseOutOfBoundsException {
+class SOAInvalidParameterException extends InvalidArgumentException {
 
 }

@@ -9,8 +9,8 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\InvalidParameterException;
-use SOA\Exceptions\LogicException;
+use SOA\Exceptions\SOAInvalidParameterException;
+use SOA\Exceptions\SOALogicException;
 
 /**
  * Interface Singleton
@@ -22,8 +22,7 @@ interface Singleton {
      * @param array ...$params
      * @return mixed
      *
-     * @throws InvalidParameterException
-     * @throws LogicException
+     * @throws SOAInvalidParameterException
      */
     public static function getInstance(...$params): mixed;
 }

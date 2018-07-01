@@ -3,18 +3,18 @@
  * Created by PhpStorm.
  * User: roma_bb8
  * Date: 28.06.18
- * Time: 23:10
+ * Time: 23:29
  */
 
 namespace SOA\Exceptions;
 
 
-use LogicException as BaseLogicException;
+use OutOfBoundsException;
 
 /**
- * Class LogicException
+ * Class SOAOutOfBoundsException
  * @package SOA\Exceptions
  */
-class LogicException extends BaseLogicException {
+class SOAOutOfBoundsException extends OutOfBoundsException {
 
 }

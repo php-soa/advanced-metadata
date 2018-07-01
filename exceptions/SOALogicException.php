@@ -2,19 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: roma_bb8
- * Date: 29.06.18
- * Time: 22:00
+ * Date: 28.06.18
+ * Time: 23:10
  */
 
 namespace SOA\Exceptions;
 
 
-use Exception as BaseException;
+use LogicException;
 
 /**
- * Class Exception
+ * Class SOALogicException
  * @package SOA\Exceptions
  */
-class Exception extends BaseException {
+class SOALogicException extends LogicException {
 
 }

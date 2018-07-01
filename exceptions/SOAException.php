@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: roma_bb8
- * Date: 27.06.18
- * Time: 23:28
+ * Date: 29.06.18
+ * Time: 22:00
  */
 
 namespace SOA\Exceptions;
@@ -11,10 +11,10 @@ namespace SOA\Exceptions;
 
 use Exception;
 
-/***
- * Class ClassNotFoundException
+/**
+ * Class SOAException
  * @package SOA\Exceptions
  */
-class ClassNotFoundException extends Exception {
+class SOAException extends Exception {
 
 }

@@ -9,10 +9,10 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\InvalidParameterException;
-use SOA\Exceptions\ClassNotFoundException;
-use SOA\Exceptions\OutOfBoundsException;
-use SOA\Exceptions\LogicException;
+use SOA\Exceptions\SOAInvalidParameterException;
+use SOA\Exceptions\SOAClassNotFoundException;
+use SOA\Exceptions\SOAOutOfBoundsException;
+use SOA\Exceptions\SOALogicException;
 
 /**
  * Interface DI
@@ -23,20 +23,19 @@ interface DI extends Singleton {
     /**
      * <code>
      *  Example of use:
-     *      1. createByFactory((Factory Interface) ObjectFactory::class, $params);
-     *      2. createByFactory((Factory Interface) $object, $params);
-     *
-     *      3. createByFactory(array(ObjectFactory::class => 'make'), $params);
-     *      4. createByFactory(array($object => 'createFactory'), $params);
+     *   1. createByFactory((Factory Interface) $object, $params);
+     *   2. createByFactory((Factory Interface) ObjectFactory::class, $params);
+     *   3. createByFactory(array($object => 'myMakeMethod'), $params);
+     *   4. createByFactory(array(ObjectFactory::class => 'myMakeMethod'), $params);
      * </code>
      *
      * @param mixed $factory
      * @param array ...$params
      * @return object
      *
-     * @throws InvalidParameterException
-     * @throws ClassNotFoundException
-     * @throws LogicException
+     * @throws SOAInvalidParameterException
+     * @throws SOAClassNotFoundException
+     * @throws SOALogicException
      */
     public function createByFactory(mixed $factory, ...$params): object;
 
@@ -47,9 +46,9 @@ interface DI extends Singleton {
      * @param array ...$params
      * @return object
      *
-     * @throws InvalidParameterException
-     * @throws ClassNotFoundException
-     * @throws LogicException
+     * @throws SOAInvalidParameterException
+     * @throws SOAClassNotFoundException
+     * @throws SOALogicException
      */
     public function create(string $name, ...$params): object;
 
@@ -58,16 +57,16 @@ interface DI extends Singleton {
     /**
      * <code>
      *  Example of use:
-     *      1. set($object, $alas);
-     *      2. set(Object::class, $alas);
-     *      3. set(array(Interface::class => Object::class), $alas);
+     *   1. set($object, $alas);
+     *   2. set(Object::class, $alas);
+     *   3. set(array(Interface::class => Object::class), $alas);
      * </code>
      *
      * @param mixed $instance
      * @param null|string $alas
      * @return bool
      *
-     * @throws LogicException
+     * @throws SOALogicException
      */
     public function set(mixed $instance, $alas = null): bool;
 
@@ -85,9 +84,9 @@ interface DI extends Singleton {
      * @param string $name
      * @return object
      *
-     * @throws ClassNotFoundException
-     * @throws OutOfBoundsException // When alas absent.
-     * @throws LogicException
+     * @throws SOAClassNotFoundException
+     * @throws SOAOutOfBoundsException // When alas absent.
+     * @throws SOALogicException
      */
     public function get(string $name): object;
 
@@ -97,8 +96,8 @@ interface DI extends Singleton {
      * @param array $params
      * @return DI
      *
-     * @throws InvalidParameterException
-     * @throws LogicException
+     * @throws SOAInvalidParameterException
+     * @throws SOALogicException
      */
     public static function getInstance(...$params): DI;
 }

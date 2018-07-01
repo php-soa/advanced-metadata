@@ -3,18 +3,16 @@
  * Created by PhpStorm.
  * User: roma_bb8
  * Date: 27.06.18
- * Time: 23:29
+ * Time: 23:28
  */
 
 namespace SOA\Exceptions;
 
 
-use InvalidArgumentException;
-
-/**
- * Class FactoryInvalidParamException
+/***
+ * Class SOAClassNotFoundException
  * @package SOA\Exceptions
  */
-class InvalidParameterException extends InvalidArgumentException {
+class SOAClassNotFoundException extends SOALogicException {
 
 }

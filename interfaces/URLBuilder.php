@@ -9,7 +9,7 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\LogicException;
+use SOA\Exceptions\SOALogicException;
 
 /**
  * Interface URLBuilder
@@ -21,7 +21,7 @@ interface URLBuilder {
      * @param URL $url
      * @return string
      *
-     * @throws LogicException
+     * @throws SOALogicException
      */
     public function get(URL $url): string;
 }
