@@ -21,27 +21,6 @@ use SOA\Exceptions\SOALogicException;
 interface DI extends Singleton {
 
     /**
-     * <code>
-     *  Example of use:
-     *   1. createByFactory((Factory Interface) $object, $params);
-     *   2. createByFactory((Factory Interface) ObjectFactory::class, $params);
-     *   3. createByFactory(array($object => 'myMakeMethod'), $params);
-     *   4. createByFactory(array(ObjectFactory::class => 'myMakeMethod'), $params);
-     * </code>
-     *
-     * @param mixed $factory
-     * @param array ...$params
-     * @return object
-     *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
-     * @throws SOALogicException
-     */
-    public function createByFactory(mixed $factory, ...$params): object;
-
-    // ----------------------------------------
-
-    /**
      * @param string $name
      * @param array ...$params
      * @return object
