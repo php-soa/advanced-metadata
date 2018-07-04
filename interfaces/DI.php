@@ -31,7 +31,7 @@ interface DI extends Singleton {
      */
     public function create(string $name, ...$params): object;
 
-    // ----------------------------------------
+    // ########################################
 
     /**
      * <code>
