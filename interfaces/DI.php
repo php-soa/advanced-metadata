@@ -49,7 +49,7 @@ interface DI extends Singleton {
 
     /**
      * @param string $name
-     * @param bool $recreate
+     * @param bool $new
      * @param array ...$params
      * @return object
      *
@@ -58,7 +58,7 @@ interface DI extends Singleton {
      * @throws SOAOutOfBoundsException // When alas absent.
      * @throws SOALogicException
      */
-    public function get(string $name, bool $recreate = false, ...$params): object;
+    public function get(string $name, bool $new = false, ...$params): object;
 
     // ########################################
 
