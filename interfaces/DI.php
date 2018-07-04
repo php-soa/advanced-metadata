@@ -40,9 +40,9 @@ interface DI extends Singleton {
      *         'instance'  => Object::class
      *      ), $alas);
      *   6. set(array(
-               'factory'   => Factory::class,
-               'instance'  => Object::class
-            ), $alas);
+     *         'factory'   => Factory::class,
+     *          'instance'  => Object::class
+     *       ), $alas);
      * </code>
      *
      * @param mixed $instance
