@@ -77,7 +77,6 @@ interface DI extends Singleton {
      * @return DI
      *
      * @throws SOAInvalidParameterException
-     * @throws SOALogicException
      */
     public static function getInstance(...$params): DI;
 }
