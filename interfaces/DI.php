@@ -26,6 +26,23 @@ interface DI extends Singleton {
      *   1. set($object, $alas);
      *   2. set(Object::class, $alas);
      *   3. set(array(Interface::class => Object::class), $alas);
+     *   4. set(array(
+     *       'factory'   => array(
+     *           'instance' => Factory::class,
+     *           'method'   => 'create'
+     *       ),
+     *       'interface' => Interfaces::class,
+     *       'instance'  => Object::class
+     *      ), $alas);
+     *   5. set(array(
+     *         'factory'   => Factory::class,
+     *         'interface' => Interfaces::class,
+     *         'instance'  => Object::class
+     *      ), $alas);
+     *   6. set(array(
+               'factory'   => Factory::class,
+               'instance'  => Object::class
+            ), $alas);
      * </code>
      *
      * @param mixed $instance
