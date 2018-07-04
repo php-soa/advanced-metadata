@@ -62,6 +62,7 @@ interface DI extends Singleton {
 
     /**
      * @param string $name
+     * @param bool $recreate
      * @param array ...$params
      * @return object
      *
@@ -69,7 +70,7 @@ interface DI extends Singleton {
      * @throws SOAClassNotFoundException
      * @throws SOAOutOfBoundsException // When alas absent.
      */
-    public function get(string $name, ...$params): object;
+    public function get(string $name, bool $recreate = false, ...$params): object;
 
     // ########################################
 
