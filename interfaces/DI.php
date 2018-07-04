@@ -21,28 +21,15 @@ use SOA\Exceptions\SOALogicException;
 interface DI extends Singleton {
 
     /**
+     * Example of use:
+     *
      * <code>
-     *  Example of use:
-     *   1. set($object, $alas);
-     *   2. set(Object::class, $alas);
-     *   3. set(array(Interface::class => Object::class), $alas);
-     *   4. set(array(
-     *       'factory'   => array(
-     *           'instance' => Factory::class,
-     *           'method'   => 'create'
-     *       ),
-     *       'interface' => Interfaces::class,
-     *       'instance'  => Object::class
-     *      ), $alas);
-     *   5. set(array(
-     *         'factory'   => Factory::class,
-     *         'interface' => Interfaces::class,
-     *         'instance'  => Object::class
-     *      ), $alas);
-     *   6. set(array(
-     *         'factory'   => Factory::class,
-     *          'instance'  => Object::class
-     *       ), $alas);
+     *   0. set($object);
+     *   1. set(Object::class);
+     *   2. set(array(Interface::class => Object::class));
+     *   3. set(array('factory' => Factory::class)); // default method use create
+     *   4. set(array('factory' => Factory::class, 'method' => 'myCreate'));
+     *   5. set(array('interface' => Interfaces::class, 'factory' => Factory::class));
      * </code>
      *
      * @param mixed $instance
