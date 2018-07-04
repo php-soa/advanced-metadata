@@ -45,6 +45,8 @@ interface DI extends Singleton {
      * @param null|string $alas
      * @return bool
      *
+     * @throws SOAInvalidParameterException
+     * @throws SOAClassNotFoundException
      * @throws SOALogicException
      */
     public function set(mixed $instance, $alas = null): bool;
