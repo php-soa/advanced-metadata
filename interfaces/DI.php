@@ -21,19 +21,6 @@ use SOA\Exceptions\SOALogicException;
 interface DI extends Singleton {
 
     /**
-     * @param string $name
-     * @param array ...$params
-     * @return object
-     *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
-     * @throws SOALogicException
-     */
-    public function create(string $name, ...$params): object;
-
-    // ########################################
-
-    /**
      * <code>
      *  Example of use:
      *   1. set($object, $alas);
@@ -69,6 +56,7 @@ interface DI extends Singleton {
      * @throws SOAInvalidParameterException
      * @throws SOAClassNotFoundException
      * @throws SOAOutOfBoundsException // When alas absent.
+     * @throws SOALogicException
      */
     public function get(string $name, bool $recreate = false, ...$params): object;
 
