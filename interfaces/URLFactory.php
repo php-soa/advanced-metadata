@@ -9,10 +9,6 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\SOAInvalidParameterException;
-use SOA\Exceptions\SOAClassNotFoundException;
-use SOA\Exceptions\SOALogicException;
-
 /**
  * Interface URLFactory
  * @package SOA\Interfaces
@@ -20,12 +16,7 @@ use SOA\Exceptions\SOALogicException;
 interface URLFactory extends Factory {
 
     /**
-     * @param array ...$params
-     * @return URL
-     *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
-     * @throws SOALogicException
+     * {@inheritdoc}
      */
     public function create(...$params): URL;
 }

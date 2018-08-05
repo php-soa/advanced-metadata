@@ -9,7 +9,7 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\SOALogicException;
+use SOA\Exceptions\SOAInvalidParameterException;
 
 /**
  * Interface URLBuilder
@@ -21,7 +21,7 @@ interface URLBuilder {
      * @param URL $url
      * @return string
      *
-     * @throws SOALogicException
+     * @throws SOAInvalidParameterException // Bad params.
      */
-    public function get(URL $url): string;
+    public function build(URL $url): string;
 }

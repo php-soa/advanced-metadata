@@ -26,9 +26,9 @@ trait SingletonTrait {
 
     private function __construct(...$params) {}
 
-    private function __sleep() {}
+    private function __sleep(): void {}
 
-    private function __wakeup() {}
+    private function __wakeup(): void  {}
 
     private function __clone() {}
 

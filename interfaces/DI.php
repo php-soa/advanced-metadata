@@ -41,13 +41,6 @@ interface DI extends Singleton {
      *  Example use custom factory:
      *    8. $di->set(Object::class, array('factory' => Factory::class, 'method' => 'makeObject'));
      *
-     *  Example use builder if (ObjectBuilder implements Builder):
-     *    9. $di->set(ObjectBuilder::class, [$alas]); // ObjectBuilder must specify the type of the object to return.
-     *   10. $di->set(Object::class, array('builder' => ObjectBuilder::class));
-     *
-     *  Example use custom builder:
-     *   11. $di->set(Object::class, array('builder' => Builder::class, 'method' => 'makeBuildObject'));
-     *
      *  Example use prototype if (ObjectPrototype implements Prototype):
      *   12. $di->set(ObjectPrototype::class, [$alas]);
      *

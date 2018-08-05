@@ -13,10 +13,16 @@ namespace SOA\Interfaces;
  * Interface Service <br> <br>
  *
  * <code>
- * public function main(...$params): int {
- *  $di = $this->getDI();
- *  // write code
- * }
+ *  public function main(...$params): int {
+ *   $di = $this->getDI();
+ *   // todo code
+ *  }
+ *
+ *  Lifecycle process method:
+ *   $this->beforeBootstrap();
+ *   $this->service->main($params);
+ *   $this->afterBootstrap();
+ *   $this->shutdown();
  * </code>
  *
  * @package SOA\Interfaces
