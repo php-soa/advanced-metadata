@@ -9,10 +9,6 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\SOAInvalidParameterException;
-use SOA\Exceptions\SOAClassNotFoundException;
-use SOA\Exceptions\SOALogicException;
-
 /**
  * Interface DIFactory
  * @package SOA\Interfaces
@@ -20,12 +16,7 @@ use SOA\Exceptions\SOALogicException;
 interface DIFactory extends Factory {
 
     /**
-     * @param array ...$params
-     * @return DI
-     *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
-     * @throws SOALogicException
+     * {@inheritdoc}
      */
     public function create(...$params): DI;
 }
