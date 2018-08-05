@@ -11,7 +11,6 @@ namespace SOA\Interfaces;
 
 use SOA\Exceptions\SOAInvalidParameterException;
 use SOA\Exceptions\SOAClassNotFoundException;
-use SOA\Exceptions\SOALogicException;
 
 /**
  * Interface Factory
@@ -25,7 +24,6 @@ interface Factory {
      *
      * @throws SOAInvalidParameterException
      * @throws SOAClassNotFoundException
-     * @throws SOALogicException
      */
     public function create(...$params): mixed;
 }
