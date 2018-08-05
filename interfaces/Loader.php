@@ -9,29 +9,18 @@
 namespace SOA\Interfaces;
 
 
-use SOA\Exceptions\SOAInvalidParameterException;
-use SOA\Exceptions\SOAClassNotFoundException;
 use Composer\Autoload\ClassLoader;
-use SOA\Exceptions\SOAException;
 
 /**
- * Interface Loader. <br> <br>
+ * Interface Loader.
  *
- * Example of use:
  * <code>
- *  $pathClassLoader = DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, array('..', 'vendor', 'autoload.php'));
- *  $classLoader = require __DIR__ . $pathClassLoader;
+ *  Example of use:
+ *   $pathClassLoader = DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, array('..', 'vendor', 'autoload.php'));
+ *   $classLoader = require __DIR__ . $pathClassLoader;
  *
- *  $loader = new \SOA\Interfaces\Loader($classLoader);
- *  $loader->process(\SOA\Interfaces\Service::class);
- * </code> <br>
- *
- * Lifecycle process method:
- * <code>
- *  $this->beforeBootstrap();
- *  $this->service->main($params);
- *  $this->afterBootstrap();
- *  $this->shutdown();
+ *   $loader = new \SOA\Interfaces\Loader($classLoader);
+ *   $loader->process(\SOA\Interfaces\Service::class);
  * </code>
  *
  * @package SOA\Interfaces
@@ -40,18 +29,15 @@ interface Loader {
 
     /**
      * Loader constructor.
-     * @param ClassLoader $classLoader
      *
-     * @throws SOAInvalidParameterException
-     * @throws SOAException
+     * @param ClassLoader $classLoader
      */
     public function __construct(ClassLoader $classLoader);
 
+    // ########################################
+
     /**
      * @param string $instance
-     *
-     * @throws SOAClassNotFoundException
-     * @throws SOAException
      */
     public function process(string $instance): void;
 }
