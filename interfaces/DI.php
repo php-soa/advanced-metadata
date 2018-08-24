@@ -12,7 +12,6 @@ namespace SOA\Interfaces;
 use SOA\Exceptions\SOAInvalidParameterException;
 use SOA\Exceptions\SOAClassNotFoundException;
 use SOA\Exceptions\SOAOutOfBoundsException;
-use SOA\Exceptions\SOALogicException;
 
 /**
  * Interface DI
@@ -21,83 +20,79 @@ use SOA\Exceptions\SOALogicException;
 interface DI extends Singleton {
 
     /**
+     * This method is based on lazy loading.
+     *
      * <code>
      *  Example of use:
-     *   1. createByFactory((Factory Interface) $object, $params);
-     *   2. createByFactory((Factory Interface) ObjectFactory::class, $params);
-     *   3. createByFactory(array($object => 'myMakeMethod'), $params);
-     *   4. createByFactory(array(ObjectFactory::class => 'myMakeMethod'), $params);
-     * </code>
+     *    1. $di->set($object, [$alas]);
+     *    2. $di->set(Object::class, [$alas]);
+     *    3. $di->set(array(Interface::class => Object::class), [$alas]);
      *
-     * @param mixed $factory
-     * @param array ...$params
-     * @return object
+     *  Example use singleton if (ObjectSingleton implements Singleton):
+     *    4. $di->set(ObjectSingleton::class, [$alas]);
      *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
-     * @throws SOALogicException
-     */
-    public function createByFactory(mixed $factory, ...$params): object;
-
-    // ----------------------------------------
-
-    /**
-     * @param string $name
-     * @param array ...$params
-     * @return object
+     *  Example use custom singleton:
+     *    5. $di->set(ObjectSingleton::class, array('singleton' => true, 'method' => 'getMyObject'));
      *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
-     * @throws SOALogicException
-     */
-    public function create(string $name, ...$params): object;
-
-    // ----------------------------------------
-
-    /**
-     * <code>
-     *  Example of use:
-     *   1. set($object, $alas);
-     *   2. set(Object::class, $alas);
-     *   3. set(array(Interface::class => Object::class), $alas);
+     *  Example use factory if (ObjectFactory implements Factory):
+     *    6. $di->set(ObjectFactory::class, [$alas]); // ObjectFactory must specify the type of the object to return.
+     *    7. $di->set(Object::class, array('factory' => ObjectFactory::class));
+     *
+     *  Example use custom factory:
+     *    8. $di->set(Object::class, array('factory' => Factory::class, 'method' => 'makeObject'));
+     *
+     *  Example use prototype if (ObjectPrototype implements Prototype):
+     *   12. $di->set(ObjectPrototype::class, [$alas]);
+     *
+     *  Example use custom prototype:
+     *   13. $di->set(Object::class, array('prototype' => true));
      * </code>
      *
      * @param mixed $instance
-     * @param null|string $alas
+     * @param array $params
      * @return bool
      *
-     * @throws SOALogicException
+     * @throws SOAInvalidParameterException // Bad params.
      */
-    public function set(mixed $instance, $alas = null): bool;
+    public function set(mixed $instance, ...$params): bool;
 
     // ########################################
 
     /**
+     * <code>
+     *  Example of use:
+     *   1. $di->has(\Acme\Object::class);
+     *   2. $di->has('my_alas');
+     * </code>
+     *
      * @param string $key
      * @return bool
      */
     public function has(string $key): bool;
 
-    // ########################################
+    // ----------------------------------------
 
     /**
-     * @param string $name
+     * <code>
+     *  Example of use:
+     *   1. $di->get(\Acme\Object::class, [$params]);
+     *   2. $di->get('my_alas', [$params]);
+     * </code>
+     *
+     * @param string $key
+     * @param mixed $params
      * @return object
      *
      * @throws SOAClassNotFoundException
      * @throws SOAOutOfBoundsException // When alas absent.
-     * @throws SOALogicException
+     * @throws SOAInvalidParameterException // Bad params.
      */
-    public function get(string $name): object;
+    public function get(string $key, ...$params): object;
 
     // ########################################
 
     /**
-     * @param array $params
-     * @return DI
-     *
-     * @throws SOAInvalidParameterException
-     * @throws SOALogicException
+     * {@inheritdoc}
      */
-    public static function getInstance(...$params): DI;
+    public static function getInstance(...$params): self;
 }
