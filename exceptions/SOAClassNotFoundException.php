@@ -9,7 +9,7 @@
 namespace SOA\Exceptions;
 
 
-/***
+/**
  * Class SOAClassNotFoundException
  * @package SOA\Exceptions
  */

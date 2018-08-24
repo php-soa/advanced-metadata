@@ -9,6 +9,7 @@
 namespace SOA\Interfaces;
 
 
+use SOA\Exceptions\SOAInvalidParameterException;
 use Composer\Autoload\ClassLoader;
 
 /**
@@ -19,11 +20,20 @@ use Composer\Autoload\ClassLoader;
  *   $pathClassLoader = DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, array('..', 'vendor', 'autoload.php'));
  *   $classLoader = require __DIR__ . $pathClassLoader;
  *
- *   $loader = new \SOA\Interfaces\Loader($classLoader);
- *   $loader->process(\SOA\Interfaces\Service::class);
+ *   $loader = new \SOA\Core\Loader($classLoader);
+ *   $loader->process(\Acme\MyService::class);
  * </code>
  *
- * @package SOA\Interfaces
+ * <code>
+ *  Lifecycle process method:
+ *
+ *    $this->beforeBootstrap();
+ *    $this->service->main($params);
+ *    $this->afterBootstrap();
+ *    $this->shutdown();
+ * </code>
+ *
+ * @package SOA\Core
  */
 interface Loader {
 
@@ -36,8 +46,22 @@ interface Loader {
 
     // ########################################
 
+    public function beforeBootstrap(): void;
+
+    // ----------------------------------------
+
+    public function afterBootstrap(): void;
+
+    // ----------------------------------------
+
+    public function shutdown(): void;
+
+    // ########################################
+
     /**
      * @param string $instance
+     *
+     * @throws SOAInvalidParameterException // If instance not implements Service interface.
      */
     public function process(string $instance): void;
 }

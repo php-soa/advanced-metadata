@@ -15,5 +15,8 @@ namespace SOA\Interfaces;
  */
 interface Prototype {
 
+    /**
+     * @return void
+     */
     public function __clone();
 }

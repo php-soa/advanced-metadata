@@ -10,19 +10,16 @@ namespace SOA\Interfaces;
 
 
 /**
- * Interface Service <br> <br>
+ * Interface Service.
  *
  * <code>
- *  public function main(...$params): int {
- *   $di = $this->getDI();
- *   // todo code
- *  }
+ *  Example entry point service:
  *
- *  Lifecycle process method:
- *   $this->beforeBootstrap();
- *   $this->service->main($params);
- *   $this->afterBootstrap();
- *   $this->shutdown();
+ *  public function main(...$params): int {
+ *     $di = $this->getDI();
+ *     // todo code
+ *     return 0;
+ *  }
  * </code>
  *
  * @package SOA\Interfaces
@@ -30,8 +27,15 @@ namespace SOA\Interfaces;
 interface Service {
 
     /**
+     * @return DI
+     */
+    public function getDI(): DI;
+
+    // ########################################
+
+    /**
      * @param array ...$params
-     * @return int // return 0 if successful completion
+     * @return int // return 0 if successful completion.
      */
     public function main(...$params): int;
 }
