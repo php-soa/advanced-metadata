@@ -21,23 +21,52 @@ use SOA\Exceptions\SOALogicException;
 interface DI extends Singleton {
 
     /**
-     * Example of use:
-     *
      * <code>
-     *   0. set($object);
-     *   1. set(Object::class);
-     *   2. set(array(Interface::class => Object::class));
-     *   3. set(array('factory' => Factory::class)); // default method use create
-     *   4. set(array('factory' => Factory::class, 'method' => 'myCreate'));
-     *   5. set(array('interface' => Interfaces::class, 'factory' => Factory::class));
+     *  Example of use:
+     *   1. createByFactory((Factory Interface) $object, $params);
+     *   2. createByFactory((Factory Interface) ObjectFactory::class, $params);
+     *   3. createByFactory(array($object => 'myMakeMethod'), $params);
+     *   4. createByFactory(array(ObjectFactory::class => 'myMakeMethod'), $params);
+     * </code>
+     *
+     * @param mixed $factory
+     * @param array ...$params
+     * @return object
+     *
+     * @throws SOAInvalidParameterException
+     * @throws SOAClassNotFoundException
+     * @throws SOALogicException
+     */
+    public function createByFactory(mixed $factory, ...$params): object;
+
+    // ----------------------------------------
+
+    /**
+     * @param string $name
+     * @param array ...$params
+     * @return object
+     *
+     * @throws SOAInvalidParameterException
+     * @throws SOAClassNotFoundException
+     * @throws SOALogicException
+     */
+    public function create(string $name, ...$params): object;
+
+    // ----------------------------------------
+
+    /**
+     * <code>
+     *  Example of use:
+     *   1. set($object, $alas);
+     *   2. set(Object::class, $alas);
+     *   3. set(array(Interface::class => Object::class), $alas);
      * </code>
      *
      * @param mixed $instance
      * @param null|string $alas
      * @return bool
      *
-     * @throws SOAInvalidParameterException
-     * @throws SOAClassNotFoundException
+     * @throws SOALogicException
      */
     public function set(mixed $instance, $alas = null): bool;
 
@@ -53,16 +82,13 @@ interface DI extends Singleton {
 
     /**
      * @param string $name
-     * @param bool $new
-     * @param array ...$params
      * @return object
      *
-     * @throws SOAInvalidParameterException
      * @throws SOAClassNotFoundException
      * @throws SOAOutOfBoundsException // When alas absent.
      * @throws SOALogicException
      */
-    public function get(string $name, bool $new = false, ...$params): object;
+    public function get(string $name): object;
 
     // ########################################
 
@@ -71,6 +97,7 @@ interface DI extends Singleton {
      * @return DI
      *
      * @throws SOAInvalidParameterException
+     * @throws SOALogicException
      */
     public static function getInstance(...$params): DI;
 }
